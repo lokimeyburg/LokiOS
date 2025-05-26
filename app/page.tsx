@@ -13,20 +13,11 @@ export default function Home() {
   const [showStartMenu, setShowStartMenu] = useState(false)
 
   useEffect(() => {
-    // Add a pixelated font
-    const style = document.createElement("style")
-    style.textContent = `
-      @font-face {
-        font-family: 'PixelFont';
-        src: local('Courier New');
-        font-display: swap;
-      }
-      
-      * {
-        font-family: 'PixelFont', monospace;
-      }
-    `
-    document.head.appendChild(style)
+    // Load Google Font
+    const link = document.createElement("link")
+    link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    link.rel = "stylesheet"
+    document.head.appendChild(link)
 
     // Simulate loading time
     const timer = setTimeout(() => {
@@ -35,7 +26,9 @@ export default function Home() {
 
     return () => {
       clearTimeout(timer)
-      document.head.removeChild(style)
+        if (document.head.contains(link)) {
+          document.head.removeChild(link)
+      }
     }
   }, [])
 
@@ -51,7 +44,7 @@ export default function Home() {
     <WindowProvider>
       <main
         className="h-screen w-screen overflow-hidden relative flex flex-col"
-        style={{ imageRendering: "pixelated" }}
+        style={{ imageRendering: "pixelated", fontFamily: "'Press Start 2P'" }}
       >
         {loading ? (
           <LoadingScreen />

@@ -43,9 +43,10 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
     <div
       className="h-10 flex items-center justify-between px-4 z-50"
       style={{
-        background: "#C5A9E0",
-        borderTop: "2px solid #8A5CDD",
+        background: "#C3B9C1",
+        borderTop: "2px solid #000000",
         imageRendering: "pixelated",
+        fontFamily: "'Press Start 2P', monospace"
       }}
     >
       <button
@@ -57,12 +58,12 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
         }}
         onClick={onStartClick}
       >
-        <span className="text-[#8A5CDD] text-xl font-bold" style={{ fontFamily: "monospace" }}>
-          Start
+        <span className="text-[#8A5CDD] text-xl font-bold">
+          START
         </span>
       </button>
 
-      <div className="text-[#8A5CDD] text-xl font-bold" style={{ fontFamily: "monospace" }}>
+      <div className="text-[#8A5CDD] text-xl font-bold">
         {formatTime(currentTime)} {currentDate}
       </div>
     </div>
