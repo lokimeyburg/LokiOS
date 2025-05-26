@@ -1,0 +1,103 @@
+"use client"
+
+import { createContext, useState, type ReactNode } from "react"
+
+export interface Window {
+  id: string
+  title: string
+  content: ReactNode
+  icon?: ReactNode
+  position?: { x: number; y: number }
+  size?: { width: number; height: number }
+  isMaximized?: boolean
+}
+
+interface WindowContextType {
+  windows: Window[]
+  activeWindowId: string | null
+  openWindow: (window: Window) => void
+  closeWindow: (id: string) => void
+  setActiveWindow: (id: string) => void
+  maximizeWindow: (id: string) => void
+  updateWindowPosition: (id: string, position: { x: number; y: number }) => void
+  updateWindowSize: (id: string, size: { width: number; height: number }) => void
+}
+
+export const WindowContext = createContext<WindowContextType>({
+  windows: [],
+  activeWindowId: null,
+  openWindow: () => {},
+  closeWindow: () => {},
+  setActiveWindow: () => {},
+  maximizeWindow: () => {},
+  updateWindowPosition: () => {},
+  updateWindowSize: () => {},
+})
+
+export function WindowProvider({ children }: { children: ReactNode }) {
+  const [windows, setWindows] = useState<Window[]>([])
+  const [activeWindowId, setActiveWindowId] = useState<string | null>(null)
+
+  const openWindow = (window: Window) => {
+    // Check if window is already open
+    if (windows.some((w) => w.id === window.id)) {
+      setActiveWindowId(window.id)
+      return
+    }
+
+    // Set default position and size if not provided
+    const newWindow = {
+      ...window,
+      position: window.position || {
+        x: 100 + ((windows.length * 20) % 200),
+        y: 100 + ((windows.length * 20) % 150),
+      },
+      size: window.size || { width: 500, height: 400 },
+      isMaximized: window.isMaximized || false,
+    }
+
+    setWindows([...windows, newWindow])
+    setActiveWindowId(window.id)
+  }
+
+  const closeWindow = (id: string) => {
+    setWindows(windows.filter((window) => window.id !== id))
+    if (activeWindowId === id) {
+      const remainingWindows = windows.filter((window) => window.id !== id)
+      setActiveWindowId(remainingWindows.length > 0 ? remainingWindows[remainingWindows.length - 1].id : null)
+    }
+  }
+
+  const setActiveWindow = (id: string) => {
+    setActiveWindowId(id)
+  }
+
+  const maximizeWindow = (id: string) => {
+    setWindows(windows.map((window) => (window.id === id ? { ...window, isMaximized: !window.isMaximized } : window)))
+  }
+
+  const updateWindowPosition = (id: string, position: { x: number; y: number }) => {
+    setWindows(windows.map((window) => (window.id === id ? { ...window, position } : window)))
+  }
+
+  const updateWindowSize = (id: string, size: { width: number; height: number }) => {
+    setWindows(windows.map((window) => (window.id === id ? { ...window, size } : window)))
+  }
+
+  return (
+    <WindowContext.Provider
+      value={{
+        windows,
+        activeWindowId,
+        openWindow,
+        closeWindow,
+        setActiveWindow,
+        maximizeWindow,
+        updateWindowPosition,
+        updateWindowSize,
+      }}
+    >
+      {children}
+    </WindowContext.Provider>
+  )
+}

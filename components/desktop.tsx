@@ -1,0 +1,72 @@
+"use client"
+
+import { useContext } from "react"
+import { WindowContext } from "./window-context"
+import { AboutIcon, NeptuneIcon, SparkIcon, SignalIcon } from "./pixel-icons"
+
+export default function Desktop() {
+  const { openWindow } = useContext(WindowContext)
+
+  const desktopIcons = [
+    {
+      id: "about",
+      name: "About",
+      icon: <AboutIcon />,
+      content: "About LOKI OS - Your retro-style operating system.",
+    },
+    {
+      id: "neptune",
+      name: "Neptune",
+      icon: <NeptuneIcon />,
+      content: "Neptune - Deep space exploration module.",
+    },
+    {
+      id: "spark",
+      name: "Spark",
+      icon: <SparkIcon />,
+      content: "Spark - Energy management system.",
+    },
+    {
+      id: "signal",
+      name: "Signal",
+      icon: <SignalIcon />,
+      content: "Signal - Communication interface.",
+    },
+  ]
+
+  return (
+    <div
+      className="h-full w-full flex"
+      style={{
+        background: "linear-gradient(to bottom, #C5A9E0, #7CDFD9)",
+        imageRendering: "pixelated",
+      }}
+    >
+      <div className="w-[120px] h-full p-4 flex flex-col gap-8">
+        {desktopIcons.map((icon) => (
+          <div
+            key={icon.id}
+            className="flex flex-col items-center justify-center gap-2 cursor-pointer"
+            onClick={() =>
+              openWindow({
+                id: icon.id,
+                title: icon.name,
+                content: icon.content,
+                icon: icon.icon,
+              })
+            }
+          >
+            <div className="w-16 h-16">{icon.icon}</div>
+            <div
+              className="text-[#8A5CDD] text-xl font-bold"
+              style={{ fontFamily: "monospace", imageRendering: "pixelated" }}
+            >
+              {icon.name}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="flex-1"></div>
+    </div>
+  )
+}

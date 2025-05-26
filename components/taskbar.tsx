@@ -1,0 +1,70 @@
+"use client"
+
+import { useContext, useEffect, useState } from "react"
+import { WindowContext } from "./window-context"
+
+interface TaskbarProps {
+  onStartClick: () => void
+}
+
+export default function Taskbar({ onStartClick }: TaskbarProps) {
+  const { windows, activeWindowId, setActiveWindow } = useContext(WindowContext)
+  const [currentTime, setCurrentTime] = useState(new Date())
+  const [currentDate, setCurrentDate] = useState(formatDate(new Date()))
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date()
+      setCurrentTime(now)
+      setCurrentDate(formatDate(now))
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  function formatDate(date: Date) {
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const year = date.getFullYear().toString().slice(2)
+    return `${month}/${day}/${year}`
+  }
+
+  function formatTime(date: Date) {
+    let hours = date.getHours()
+    const minutes = date.getMinutes()
+    const ampm = hours >= 12 ? "PM" : "AM"
+    hours = hours % 12
+    hours = hours ? hours : 12 // the hour '0' should be '12'
+    const minutesStr = minutes < 10 ? "0" + minutes : minutes
+    return `${hours}:${minutesStr} ${ampm}`
+  }
+
+  return (
+    <div
+      className="h-10 flex items-center justify-between px-4 z-50"
+      style={{
+        background: "#C5A9E0",
+        borderTop: "2px solid #8A5CDD",
+        imageRendering: "pixelated",
+      }}
+    >
+      <button
+        className="h-8 px-6 flex items-center justify-center gap-2"
+        style={{
+          border: "4px solid #8A5CDD",
+          background: "#C5A9E0",
+          imageRendering: "pixelated",
+        }}
+        onClick={onStartClick}
+      >
+        <span className="text-[#8A5CDD] text-xl font-bold" style={{ fontFamily: "monospace" }}>
+          Start
+        </span>
+      </button>
+
+      <div className="text-[#8A5CDD] text-xl font-bold" style={{ fontFamily: "monospace" }}>
+        {formatTime(currentTime)} {currentDate}
+      </div>
+    </div>
+  )
+}
