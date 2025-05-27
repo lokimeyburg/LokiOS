@@ -45,7 +45,6 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
       style={{
         background: "#C3B9C1",
         borderTop: "2px solid #000000",
-        imageRendering: "pixelated",
         fontFamily: "'Press Start 2P', monospace"
       }}
     >
@@ -54,7 +53,6 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
         style={{
           border: "4px solid #8A5CDD",
           background: "#C5A9E0",
-          imageRendering: "pixelated",
         }}
         onClick={onStartClick}
       >

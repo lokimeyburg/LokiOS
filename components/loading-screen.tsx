@@ -29,7 +29,6 @@ export default function LoadingScreen() {
       className="h-full w-full flex flex-col items-center justify-center"
       style={{
         background: "linear-gradient(to bottom, #C5A9E0, #7CDFD9)",
-        imageRendering: "pixelated",
         fontFamily: "'Press Start 2P', monospace"
       }}
     >
@@ -38,10 +37,9 @@ export default function LoadingScreen() {
         style={{
           border: "4px solid #8A5CDD",
           background: "#FFE6F2",
-          imageRendering: "pixelated",
         }}
       >
-        <div className="text-2xl mb-2 text-[#8A5CDD] font-bold">
+        <div className="text-2xl mb-2 text-[#8A5CDD]">
           LOKI OS - PIXEL
         </div>
         <div className="mb-2 text-[#8A5CDD]">
@@ -51,12 +49,12 @@ export default function LoadingScreen() {
           BUILD 4804 : 2505192317 GMT+00:00
         </div>
         <div className="mb-1 text-[#8A5CDD]">
-          MAIN PROCESSOR : BIG BRAIN
+          MAIN PROCESSOR : AESTHETIC
         </div>
         <div className="mb-6 text-[#8A5CDD]">
           SOME NUMBERS : 805250k
         </div>
-        <div className="text-2xl text-[#8A5CDD] font-bold">
+        <div className="text-2xl text-[#8A5CDD]">
           {bootingText}
           {dots}
         </div>

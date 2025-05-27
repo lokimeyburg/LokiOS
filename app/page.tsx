@@ -15,14 +15,14 @@ export default function Home() {
   useEffect(() => {
     // Load Google Font
     const link = document.createElement("link")
-    link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
     link.rel = "stylesheet"
     document.head.appendChild(link)
 
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 300000)
 
     return () => {
       clearTimeout(timer)
@@ -44,7 +44,7 @@ export default function Home() {
     <WindowProvider>
       <main
         className="h-screen w-screen overflow-hidden relative flex flex-col"
-        style={{ imageRendering: "pixelated", fontFamily: "'Press Start 2P'" }}
+        style={{ fontFamily: "'Press Start 2P', monospace" }}
       >
         {loading ? (
           <LoadingScreen />
