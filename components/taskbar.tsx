@@ -51,17 +51,17 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
       <button
         className="h-8 px-6 flex items-center justify-center gap-2"
         style={{
-          border: "4px solid #8A5CDD",
+          borderTop: "4px solid #000",
           background: "#C5A9E0",
         }}
         onClick={onStartClick}
       >
-        <span className="text-[#8A5CDD] text-xl font-bold">
+        <span className="text-[#000] text-xs">
           START
         </span>
       </button>
 
-      <div className="text-[#8A5CDD] text-xl font-bold">
+      <div className="text-[#000] text-xs">
         {formatTime(currentTime)} {currentDate}
       </div>
     </div>

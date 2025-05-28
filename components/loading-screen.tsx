@@ -28,33 +28,29 @@ export default function LoadingScreen() {
     <div
       className="h-full w-full flex flex-col items-center justify-center"
       style={{
-        background: "linear-gradient(to bottom, #C5A9E0, #7CDFD9)",
+        background: "#000",
         fontFamily: "'Press Start 2P', monospace"
       }}
     >
       <div
-        className="text-center p-8 shadow-[8px_8px_0px_rgba(138,92,221,0.3)]"
-        style={{
-          border: "4px solid #8A5CDD",
-          background: "#FFE6F2",
-        }}
+        className="text-center p-8 text-[#00FFAA]"
       >
-        <div className="text-2xl mb-2 text-[#8A5CDD]">
+        <div className="text-sm mb-6">
           LOKI OS - PIXEL
         </div>
-        <div className="mb-2 text-[#8A5CDD]">
+        <div className="mb-2 text-xs">
           COPYRIGHT (C) 2025 LOKI.IO LTD
         </div>
-        <div className="mb-6 text-[#8A5CDD]">
+        <div className="mb-6 text-xs">
           BUILD 4804 : 2505192317 GMT+00:00
         </div>
-        <div className="mb-1 text-[#8A5CDD]">
+        <div className="mb-1 text-xs">
           MAIN PROCESSOR : AESTHETIC
         </div>
-        <div className="mb-6 text-[#8A5CDD]">
+        <div className="mb-6 text-xs">
           SOME NUMBERS : 805250k
         </div>
-        <div className="text-2xl text-[#8A5CDD]">
+        <div className="text-2s">
           {bootingText}
           {dots}
         </div>
