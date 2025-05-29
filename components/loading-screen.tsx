@@ -36,7 +36,7 @@ export default function LoadingScreen() {
         className="text-center p-8 text-[#00FFAA]"
       >
         <div className="text-sm mb-6">
-          LOKI OS - PIXEL
+          LOKI OS
         </div>
         <div className="mb-2 text-xs">
           COPYRIGHT (C) 2025 LOKI.IO LTD

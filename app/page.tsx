@@ -22,7 +22,7 @@ export default function Home() {
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 0)
 
     return () => {
       clearTimeout(timer)
@@ -54,8 +54,9 @@ export default function Home() {
               <Desktop />
               <WindowManager />
             </div>
-            <Taskbar onStartClick={toggleStartMenu} />
             {showStartMenu && <StartMenu onItemClick={closeStartMenu} />}
+            <Taskbar onStartClick={toggleStartMenu} />
+            
           </>
         )}
       </main>

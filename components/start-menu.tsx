@@ -85,11 +85,12 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
 
   return (
     <div
-      className="absolute bottom-10 left-0 w-64 z-50 shadow-[8px_8px_0px_rgba(138,92,221,0.3)]"
+      className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 shadow-[8px_8px_0px_rgba(138,92,221,0.3)]"
       style={{
-        border: "4px solid #8A5CDD",
-        background: "#C5A9E0",
-        imageRendering: "pixelated",
+        borderTop: "2px solid #000",
+        borderLeft: "2px solid #000",
+        borderRight: "2px solid #000",
+        background: "#DCD7DB",
       }}
     >
       <div

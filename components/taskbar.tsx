@@ -41,7 +41,7 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
 
   return (
     <div
-      className="h-10 flex items-center justify-between px-4 z-50"
+      className="h-10 flex items-center justify-center px-4 z-50"
       style={{
         background: "#C3B9C1",
         borderTop: "2px solid #000000",
@@ -51,8 +51,8 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
       <button
         className="h-8 px-6 flex items-center justify-center gap-2"
         style={{
-          borderTop: "4px solid #000",
-          background: "#C5A9E0",
+          borderLeft: "2px solid #fff",
+          borderRight: "2px solid #fff",
         }}
         onClick={onStartClick}
       >
@@ -61,8 +61,8 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
         </span>
       </button>
 
-      <div className="text-[#000] text-xs">
-        {formatTime(currentTime)} {currentDate}
+      <div className="text-[#000] text-xs fixed right-4">
+        {currentDate}
       </div>
     </div>
   )
