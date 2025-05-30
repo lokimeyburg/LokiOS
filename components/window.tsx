@@ -116,24 +116,22 @@ export default function Window({ window, isActive }: WindowProps) {
   return (
     <div
       ref={windowRef}
-      className="absolute pointer-events-auto flex flex-col shadow-[8px_8px_0px_rgba(138,92,221,0.3)]"
+      className="absolute rounded pointer-events-auto flex flex-col shadow-[3px_3px_0px_rgba(138,92,221,0.3)]"
       style={{
         ...style,
-        border: "4px solid #8A5CDD",
-        imageRendering: "pixelated",
+        border: "2px solid #000",
       }}
       onClick={handleWindowClick}
     >
       {/* Window title bar */}
       <div
-        className="h-10 flex items-center justify-between px-2 cursor-move"
+        className="h-8 flex items-center justify-between px-2 cursor-move border-b border-[#000]"
         style={{
-          background: "#FFA6E6",
-          imageRendering: "pixelated",
+          background: "linear-gradient(to right, #C1BBBF, #D8D3D7)"
         }}
         onMouseDown={handleTitleMouseDown}
       >
-        <div className="flex items-center gap-2 text-[#8A5CDD] font-bold text-2xl" style={{ fontFamily: "monospace" }}>
+        <div className="flex items-center gap-2 text-[#000] text-xs">
           {window.title}
         </div>
         <div className="flex items-center gap-1">
@@ -154,11 +152,9 @@ export default function Window({ window, isActive }: WindowProps) {
         className="flex-1"
         style={{
           background: "#FFE6F2",
-          border: "2px solid #8A5CDD",
-          imageRendering: "pixelated",
         }}
       >
-        <div className="p-4 text-[#8A5CDD] font-mono">{window.content}</div>
+        <div className="p-4 text-[#000] text-xs">{window.content}</div>
       </ScrollArea>
 
       {/* Resize handle */}

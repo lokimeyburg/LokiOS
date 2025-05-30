@@ -10,29 +10,31 @@ export default function Desktop() {
   const desktopIcons = [
     {
       id: "about",
-      name: "About",
+      title: "About",
       icon: <AboutIcon />,
       content: "About LOKI OS - Your retro-style operating system.",
     },
     {
       id: "neptune",
-      name: "Neptune",
+      title: "Neptune",
       icon: <NeptuneIcon />,
       content: "Neptune - Deep space exploration module.",
     },
     {
       id: "spark",
-      name: "Spark",
+      title: "Spark",
       icon: <SparkIcon />,
       content: "Spark - Energy management system.",
     },
     {
       id: "signal",
-      name: "Signal",
+      title: "Signal",
       icon: <SignalIcon />,
       content: "Signal - Communication interface.",
     },
   ]
+
+  // openWindow(desktopIcons[0]) // Open the first icon by default
 
   return (
     <div
@@ -50,7 +52,7 @@ export default function Desktop() {
             onClick={() =>
               openWindow({
                 id: icon.id,
-                title: icon.name,
+                title: icon.title,
                 content: icon.content,
                 icon: icon.icon,
               })
@@ -61,7 +63,7 @@ export default function Desktop() {
               className="text-[#000] text-xs"
               style={{ imageRendering: "pixelated" }}
             >
-              {icon.name}
+              {icon.title}
             </div>
           </div>
         ))}

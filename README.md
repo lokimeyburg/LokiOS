@@ -26,5 +26,5 @@ npm run dev
 ## TODO
 
 - [ ] Add MIT license
-- [ ] Animations: button press downs, fade-ins, etc
 - [ ] Three.js Background 
+- [ ] Animations: button press downs, fade-ins, parallax, etc
