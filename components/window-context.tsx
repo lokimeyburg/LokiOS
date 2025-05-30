@@ -38,27 +38,37 @@ export function WindowProvider({ children }: { children: ReactNode }) {
   const [windows, setWindows] = useState<Window[]>([])
   const [activeWindowId, setActiveWindowId] = useState<string | null>(null)
 
-  const openWindow = (window: Window) => {
+  const openWindow = (osWindow: Window) => {
     // Check if window is already open
-    if (windows.some((w) => w.id === window.id)) {
-      setActiveWindowId(window.id)
-      return
+    if (windows.some((w) => w.id === osWindow.id)) {
+      setActiveWindowId(osWindow.id);
+      return;
     }
 
-    // Set default position and size if not provided
+    // Detect if the device is mobile (viewport width < 758px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 758;
+
+    // Set default position and size based on device type
     const newWindow = {
-      ...window,
-      position: window.position || {
-        x: 100 + ((windows.length * 20) % 200),
-        y: 100 + ((windows.length * 20) % 150),
-      },
-      size: window.size || { width: 500, height: 400 },
-      isMaximized: window.isMaximized || false,
-    }
+      ...osWindow,
+      position: osWindow.position || (isMobile
+        ? { x: 15, y: 15 } // 10px margin on top, 5px on the sides
+        : {
+            x: 50 + ((windows.length * 20) % 200),
+            y: 50 + ((windows.length * 20) % 150),
+          }),
+      size: osWindow.size || (isMobile
+        ? {
+            width: window.innerWidth - 30, // Full width minus 10px margin
+            height: window.innerHeight - 70, // Full height minus 20px margin (10px top and bottom)
+          }
+        : { width: 500, height: 400 }),
+      isMaximized: osWindow.isMaximized || false,
+    };
 
-    setWindows([...windows, newWindow])
-    setActiveWindowId(window.id)
-  }
+    setWindows([...windows, newWindow]);
+    setActiveWindowId(osWindow.id);
+  };
 
   const closeWindow = (id: string) => {
     setWindows(windows.filter((window) => window.id !== id))

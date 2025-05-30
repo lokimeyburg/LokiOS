@@ -3,6 +3,7 @@
 import { useContext } from "react"
 import { WindowContext } from "./window-context"
 import { AboutIcon, NeptuneIcon, SparkIcon, SignalIcon } from "./pixel-icons"
+import { AboutContent } from "./windowContent/about"
 
 export default function Desktop() {
   const { openWindow } = useContext(WindowContext)
@@ -12,7 +13,7 @@ export default function Desktop() {
       id: "about",
       title: "About",
       icon: <AboutIcon />,
-      content: "About LOKI OS - Your retro-style operating system.",
+      content: <AboutContent />,
     },
     {
       id: "neptune",

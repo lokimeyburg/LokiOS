@@ -44,7 +44,7 @@ export default function Home() {
     <WindowProvider>
       <main
         className="h-screen w-screen overflow-hidden relative flex flex-col"
-        style={{ fontFamily: "'Press Start 2P', monospace" }}
+        style={{ fontFamily: "'Press Start 2P', monospace", maxHeight: "calc(100svh)"}}
       >
         {loading ? (
           <LoadingScreen />

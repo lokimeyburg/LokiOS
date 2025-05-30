@@ -4,6 +4,7 @@ import { useContext } from "react"
 import { WindowContext } from "./window-context"
 import { AboutIconSmall, NeptuneIconSmall, SparkIconSmall, SignalIconSmall } from "./pixel-icons"
 import { Power, Users } from "lucide-react"
+import { AboutContent } from "./windowContent/about"
 
 interface StartMenuProps {
   onItemClick: () => void
@@ -17,14 +18,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
       id: "about",
       name: "About",
       icon: <AboutIconSmall />,
-      content: (
-        <div>
-          <h2 className="text-xl font-bold mb-4">About LOKI OS</h2>
-          <p className="mb-2">Welcome to your pixelated operating system.</p>
-          <p className="mb-2">Version 1.0.0 - Pixel Edition</p>
-          <p>Inspired by the nostalgic computing experience of the 90s.</p>
-        </div>
-      ),
+      content: <AboutContent />,
     },
     {
       id: "neptune",
@@ -73,11 +67,11 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
 
   return (
     <div
-      className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 rounded-t-md shadow-[4px_4px_0px_rgba(138,92,221,0.3)]"
+      className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 rounded-t-md shadow-[4px_4px_0px_rgba(0,0,0,0.3)]"
       style={{
-        borderTop: "2px solid #fff",
-        borderLeft: "2px solid #fff",
-        borderRight: "2px solid #000",
+        borderTop: "1px solid #000",
+        borderLeft: "1px solid #000",
+        borderRight: "1px solid #000",
         background: "#DCD7DB",
       }}
     >

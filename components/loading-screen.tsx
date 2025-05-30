@@ -50,7 +50,7 @@ export default function LoadingScreen() {
         <div className="mb-6 text-xs">
           SOME NUMBERS : 805250k
         </div>
-        <div className="text-2s">
+        <div className="text-xs">
           {bootingText}
           {dots}
         </div>
