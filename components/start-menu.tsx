@@ -2,7 +2,7 @@
 
 import { useContext } from "react"
 import { WindowContext } from "./window-context"
-import { AboutIcon, NeptuneIcon, SparkIcon, SignalIcon } from "./pixel-icons"
+import { AboutIconSmall, NeptuneIconSmall, SparkIconSmall, SignalIconSmall } from "./pixel-icons"
 import { Power, Users } from "lucide-react"
 
 interface StartMenuProps {
@@ -16,7 +16,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
     {
       id: "about",
       name: "About",
-      icon: <AboutIcon />,
+      icon: <AboutIconSmall />,
       content: (
         <div>
           <h2 className="text-xl font-bold mb-4">About LOKI OS</h2>
@@ -29,7 +29,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
     {
       id: "neptune",
       name: "Neptune",
-      icon: <NeptuneIcon />,
+      icon: <NeptuneIconSmall />,
       content: (
         <div>
           <h2 className="text-xl font-bold mb-4">Neptune</h2>
@@ -40,7 +40,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
     {
       id: "spark",
       name: "Spark",
-      icon: <SparkIcon />,
+      icon: <SparkIconSmall />,
       content: (
         <div>
           <h2 className="text-xl font-bold mb-4">Spark</h2>
@@ -51,26 +51,14 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
     {
       id: "signal",
       name: "Signal",
-      icon: <SignalIcon />,
+      icon: <SignalIconSmall />,
       content: (
         <div>
           <h2 className="text-xl font-bold mb-4">Signal</h2>
           <p>Communication interface.</p>
         </div>
       ),
-    },
-    {
-      id: "credits",
-      name: "Credits",
-      icon: <Users size={16} className="text-[#8A5CDD]" />,
-      content: (
-        <div>
-          <h2 className="text-xl font-bold mb-4">Credits</h2>
-          <p className="mb-2">LOKI OS was developed by the Pixel team.</p>
-          <p>Pixel Edition - 2025</p>
-        </div>
-      ),
-    },
+    }
   ]
 
   const handleItemClick = (item: (typeof menuItems)[0]) => {
@@ -85,25 +73,24 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
 
   return (
     <div
-      className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 shadow-[8px_8px_0px_rgba(138,92,221,0.3)]"
+      className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 rounded-t-md shadow-[4px_4px_0px_rgba(138,92,221,0.3)]"
       style={{
-        borderTop: "2px solid #000",
-        borderLeft: "2px solid #000",
+        borderTop: "2px solid #fff",
+        borderLeft: "2px solid #fff",
         borderRight: "2px solid #000",
         background: "#DCD7DB",
       }}
     >
       <div
-        className="p-3 border-b-2 border-[#8A5CDD]"
+        className="p-3 border-b border-[#000] rounded-t-md"
         style={{
-          background: "#C5A9E0",
-          imageRendering: "pixelated",
+          background: "linear-gradient(to left, #C5A9E0, #7CDFD9)"
         }}
       >
-        <div className="text-xl text-[#8A5CDD] font-bold" style={{ fontFamily: "monospace" }}>
+        <div className="text-sm text-[#000]">
           LOKI OS
         </div>
-        <div className="text-sm text-[#8A5CDD]" style={{ fontFamily: "monospace" }}>
+        <div className="text-xs text-[#000]">
           PIXEL EDITION
         </div>
       </div>
@@ -112,8 +99,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
         {menuItems.map((item) => (
           <button
             key={item.id}
-            className="w-full px-4 py-2 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#8A5CDD] font-bold text-left"
-            style={{ fontFamily: "monospace" }}
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
             onClick={() => handleItemClick(item)}
           >
             <div className="w-6 h-6">{item.icon}</div>
@@ -121,13 +107,17 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
           </button>
         ))}
 
-        <div className="border-t-2 border-[#8A5CDD] mt-2 pt-2">
+        <div className="border-t border-[#000] mt-2 pt-2">
           <button
-            className="w-full px-4 py-2 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#8A5CDD] font-bold text-left"
-            style={{ fontFamily: "monospace" }}
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
             onClick={onItemClick}
           >
-            <Power size={16} className="text-[#8A5CDD]" />
+            <span>Credits</span>
+          </button>
+          <button
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
+            onClick={onItemClick}
+          >
             <span>Shut Down</span>
           </button>
         </div>

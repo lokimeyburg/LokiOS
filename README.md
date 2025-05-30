@@ -25,4 +25,6 @@ npm run dev
 
 ## TODO
 
-- [] Add MIT license
+- [ ] Add MIT license
+- [ ] Animations: button press downs, fade-ins, etc
+- [ ] Three.js Background 

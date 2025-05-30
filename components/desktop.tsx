@@ -42,7 +42,7 @@ export default function Desktop() {
         imageRendering: "pixelated",
       }}
     >
-      <div className="w-[120px] h-full p-4 flex flex-col gap-8">
+      <div className="w-[120px] h-full p-4 flex flex-col gap-10">
         {desktopIcons.map((icon) => (
           <div
             key={icon.id}
@@ -56,10 +56,10 @@ export default function Desktop() {
               })
             }
           >
-            <div className="w-16 h-16">{icon.icon}</div>
+            <div className="w-12 h-12">{icon.icon}</div>
             <div
-              className="text-[#8A5CDD] text-xl font-bold"
-              style={{ fontFamily: "monospace", imageRendering: "pixelated" }}
+              className="text-[#000] text-xs"
+              style={{ imageRendering: "pixelated" }}
             >
               {icon.name}
             </div>
