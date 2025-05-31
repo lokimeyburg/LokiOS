@@ -42,10 +42,10 @@ export default function LoadingScreen() {
           COPYRIGHT (C) 2025 LOKI.IO LTD
         </div>
         <div className="mb-6 text-xs">
-          BUILD 4804 : 2505192317 GMT+00:00
+          BUILD 4804 : 2505192317
         </div>
         <div className="mb-1 text-xs">
-          MAIN PROCESSOR : AESTHETIC
+          EDITION : AESTHETIC
         </div>
         <div className="mb-6 text-xs">
           SOME NUMBERS : 805250k

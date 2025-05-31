@@ -14,8 +14,14 @@ export default function Home() {
 
   useEffect(() => {
     // Load Google Font
-    const link = document.createElement("link")
+    var link = document.createElement("link")
     link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
+    link.rel = "stylesheet"
+    document.head.appendChild(link)
+
+    // Google Font for better reading
+    link = document.createElement("link")
+    link.href = "https://fonts.googleapis.com/css2?family=VT323&display=block"
     link.rel = "stylesheet"
     document.head.appendChild(link)
 

@@ -54,15 +54,15 @@ export function WindowProvider({ children }: { children: ReactNode }) {
       position: osWindow.position || (isMobile
         ? { x: 15, y: 15 } // 10px margin on top, 5px on the sides
         : {
-            x: 50 + ((windows.length * 20) % 200),
-            y: 50 + ((windows.length * 20) % 150),
+            x: 100 + ((windows.length * 20) % 200),
+            y: 100 + ((windows.length * 20) % 150),
           }),
       size: osWindow.size || (isMobile
         ? {
             width: window.innerWidth - 30, // Full width minus 10px margin
             height: window.innerHeight - 70, // Full height minus 20px margin (10px top and bottom)
           }
-        : { width: 500, height: 400 }),
+        : { width: 900, height: 800 }),
       isMaximized: osWindow.isMaximized || false,
     };
 

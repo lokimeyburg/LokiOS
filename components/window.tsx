@@ -198,7 +198,7 @@ export default function Window({ window, isActive }: WindowProps) {
           background: "#FFFFFF",
         }}
       >
-        <div className="p-4 text-[#000] text-xs">{window.content}</div>
+        <div className="p-2 text-[#000] text-xs">{window.content}</div>
       </ScrollArea>
 
       {/* Resize handle */}

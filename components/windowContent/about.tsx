@@ -1,15 +1,15 @@
 export const AboutContent = () => (
-  <>
+  <div style={{ }}>
     <h2 className="text-xl mb-4">Loki Meyburg</h2>
     <p className="mb-2">This is my online resume, designed as nostalgic computing experience of the 90s.</p>
-    <h2 className="text-base mb-4">Professional Summary</h2>
+    <h2 className="text-sm mb-4">Professional Summary</h2>
     <p className="mb-2">
       I create product concepts, lead product teams, and try to work out what's happening next.
       Proven track record of building and shipping products and features to businesses, consumers and developers at scales of hundreds of millions of users worldwide. 3 years of people management experience. 7+ years of focus building platforms that empower others to achieve even more.
     </p>
-    <h2 className="text-base mb-4">Professional Experience</h2>
-    <h3 className="text-sm mb-2">Microsoft - 6 yrs 1 mos</h3>
-    <p className="mb-2">
+    <h2 className="text-sm mb-4">Professional Experience</h2>
+    <h3 className="text-xs mb-2">Microsoft - 6 yrs 1 mos</h3>
+    <p className="text-xs mb-2">
       
 Principal Lead Product Manager, Microsoft Teams Platform – March 2023 – Present
 Leading a small team of four product managers dedicated to enhancing group productivity and collaboration with the help of AI agents and automations.
@@ -21,5 +21,5 @@ Collaborative effort across Teams, SP and Power Automate.
 
     </p>
     
-  </>
+  </div>
 );
