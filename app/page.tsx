@@ -7,6 +7,7 @@ import Taskbar from "@/components/taskbar"
 import WindowManager from "@/components/window-manager"
 import StartMenu from "@/components/start-menu"
 import { WindowProvider } from "@/components/window-context"
+import VaporWave from "@/components/vaporwave"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -16,12 +17,6 @@ export default function Home() {
     // Load Google Font
     var link = document.createElement("link")
     link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
-    link.rel = "stylesheet"
-    document.head.appendChild(link)
-
-    // Google Font for better reading
-    link = document.createElement("link")
-    link.href = "https://fonts.googleapis.com/css2?family=VT323&display=block"
     link.rel = "stylesheet"
     document.head.appendChild(link)
 
@@ -47,25 +42,29 @@ export default function Home() {
   }
 
   return (
-    <WindowProvider>
-      <main
-        className="h-screen w-screen overflow-hidden relative flex flex-col"
-        style={{ fontFamily: "'Press Start 2P', monospace", maxHeight: "calc(100svh)"}}
-      >
-        {loading ? (
-          <LoadingScreen />
-        ) : (
-          <>
-            <div className="flex-1 relative" onClick={closeStartMenu}>
-              <Desktop />
-              <WindowManager />
-            </div>
-            {showStartMenu && <StartMenu onItemClick={closeStartMenu} />}
-            <Taskbar onStartClick={toggleStartMenu} />
-            
-          </>
-        )}
-      </main>
-    </WindowProvider>
+    <>
+      <VaporWave />
+      <WindowProvider>
+        <main
+          className="h-screen w-screen overflow-hidden relative flex flex-col"
+          style={{ fontFamily: "'Press Start 2P', monospace", maxHeight: "calc(100svh)"}}
+        >
+          {loading ? (
+            <LoadingScreen />
+          ) : (
+            <>
+              <div className="flex-1 relative" onClick={closeStartMenu}>
+                <Desktop />
+                <WindowManager />
+              </div>
+              {showStartMenu && <StartMenu onItemClick={closeStartMenu} />}
+              <Taskbar onStartClick={toggleStartMenu} />
+              
+            </>
+          )}
+        </main>
+      </WindowProvider>
+    </>
+
   )
 }

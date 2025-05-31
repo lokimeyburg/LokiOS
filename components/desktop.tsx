@@ -11,25 +11,25 @@ export default function Desktop() {
   const desktopIcons = [
     {
       id: "about",
-      title: "About",
+      title: "LOKI",
       icon: <AboutIcon />,
       content: <AboutContent />,
     },
     {
       id: "neptune",
-      title: "Neptune",
+      title: "NEPTUNE",
       icon: <NeptuneIcon />,
       content: "Neptune - Deep space exploration module.",
     },
     {
       id: "spark",
-      title: "Spark",
+      title: "SPARK",
       icon: <SparkIcon />,
       content: "Spark - Energy management system.",
     },
     {
       id: "signal",
-      title: "Signal",
+      title: "SIGNAL",
       icon: <SignalIcon />,
       content: "Signal - Communication interface.",
     },
@@ -41,8 +41,7 @@ export default function Desktop() {
     <div
       className="h-full w-full flex"
       style={{
-        background: "linear-gradient(to bottom, #C5A9E0, #7CDFD9)",
-        imageRendering: "pixelated",
+        background: "transparent"
       }}
     >
       <div className="w-[120px] h-full p-4 flex flex-col gap-10">

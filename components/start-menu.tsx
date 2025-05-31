@@ -85,7 +85,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
           LOKI OS
         </div>
         <div className="text-xs text-[#000]">
-          PIXEL EDITION
+          AESTHETIC EDITION
         </div>
       </div>
 
@@ -93,7 +93,7 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
         {menuItems.map((item) => (
           <button
             key={item.id}
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
             onClick={() => handleItemClick(item)}
           >
             <div className="w-6 h-6">{item.icon}</div>
@@ -103,13 +103,13 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
 
         <div className="border-t border-[#000] mt-2 pt-2">
           <button
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
             onClick={onItemClick}
           >
             <span>Credits</span>
           </button>
           <button
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#FFA6E6] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
             onClick={onItemClick}
           >
             <span>Shut Down</span>
