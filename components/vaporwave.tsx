@@ -20,15 +20,15 @@ const VaporWave = () => {
 
     // Textures
     const textureLoader = new THREE.TextureLoader();
-    const gridTexture = textureLoader.load("/grid-6.png");
+    const gridTexture = textureLoader.load("/grid-6-NEW.png");
     const heightTexture = textureLoader.load("/displacement-7.png");
 
     // Scene
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#fefefe");
+    scene.background = new THREE.Color("#E6A9F3");
 
     // Fog
-    const fog = new THREE.Fog("#fefefe", 1, 2.5);
+    const fog = new THREE.Fog("#E6A9F3", 1, 2.5);
     scene.fog = fog;
 
     // Objects

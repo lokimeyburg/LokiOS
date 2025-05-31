@@ -26,5 +26,7 @@ npm run dev
 ## TODO
 
 - [ ] Add MIT license
-- [ ] Three.js Background 
+- [x] Three.js Background 
 - [ ] Animations: button press downs, fade-ins, parallax, etc
+- [ ] Update favicons and website description
+- [ ] Add the ability to deeplink to a window
