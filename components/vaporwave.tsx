@@ -88,7 +88,7 @@ const VaporWave = () => {
     gui.addColor(ambientLight, "color").name("AmbientLight color");
 
     const spotlight = new THREE.SpotLight(
-      "#d53c3d",
+      "#1CEFF2",
       40,
       25,
       Math.PI * 0.1,
@@ -102,7 +102,7 @@ const VaporWave = () => {
     scene.add(spotlight.target);
 
     const spotlight2 = new THREE.SpotLight(
-      "#d53c3d",
+      "#1CEFF2",
       40,
       25,
       Math.PI * 0.1,
@@ -229,7 +229,7 @@ const VaporWave = () => {
     effectComposer.addPass(renderPass);
 
     const rgbShiftPass = new ShaderPass(RGBShiftShader);
-    rgbShiftPass.uniforms["amount"].value = 0.001;
+    rgbShiftPass.uniforms["amount"].value = 0.00361;
     gui
       .add(rgbShiftPass.uniforms["amount"], "value")
       .min(0)
