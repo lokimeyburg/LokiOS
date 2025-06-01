@@ -60,8 +60,7 @@ export default function Desktop() {
           >
             <div className="w-12 h-12">{icon.icon}</div>
             <div
-              className="text-[#000] text-xs"
-              style={{ imageRendering: "pixelated" }}
+              className="text-[#fff] text-xs"
             >
               {icon.title}
             </div>

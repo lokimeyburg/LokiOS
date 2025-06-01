@@ -2,7 +2,7 @@
 
 import { useContext } from "react"
 import { WindowContext } from "./window-context"
-import { AboutIconSmall, NeptuneIconSmall, SparkIconSmall, SignalIconSmall } from "./pixel-icons"
+import { AboutIconSmall, NeptuneIconSmall, SparkIconSmall, SignalIconSmall } from "./pixel-icons" 
 import { Power, Users } from "lucide-react"
 import { AboutContent } from "./windowContent/about"
 
@@ -13,52 +13,38 @@ interface StartMenuProps {
 export default function StartMenu({ onItemClick }: StartMenuProps) {
   const { openWindow } = useContext(WindowContext)
 
+
   const menuItems = [
     {
       id: "about",
-      name: "About",
+      title: "LOKI",
       icon: <AboutIconSmall />,
       content: <AboutContent />,
     },
     {
       id: "neptune",
-      name: "Neptune",
+      title: "NEPTUNE",
       icon: <NeptuneIconSmall />,
-      content: (
-        <div>
-          <h2 className="text-xl font-bold mb-4">Neptune</h2>
-          <p>Deep space exploration module.</p>
-        </div>
-      ),
+      content: "Neptune - Deep space exploration module.",
     },
     {
       id: "spark",
-      name: "Spark",
+      title: "SPARK",
       icon: <SparkIconSmall />,
-      content: (
-        <div>
-          <h2 className="text-xl font-bold mb-4">Spark</h2>
-          <p>Energy management system.</p>
-        </div>
-      ),
+      content: "Spark - Energy management system.",
     },
     {
       id: "signal",
-      name: "Signal",
+      title: "SIGNAL",
       icon: <SignalIconSmall />,
-      content: (
-        <div>
-          <h2 className="text-xl font-bold mb-4">Signal</h2>
-          <p>Communication interface.</p>
-        </div>
-      ),
-    }
+      content: "Signal - Communication interface.",
+    },
   ]
 
   const handleItemClick = (item: (typeof menuItems)[0]) => {
     openWindow({
       id: item.id,
-      title: item.name,
+      title: item.title,
       content: item.content,
       icon: item.icon,
     })
@@ -69,22 +55,22 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
     <div
       className="absolute mr-auto ml-auto left-0 right-0 bottom-10 w-64 z-50 rounded-t-md shadow-[4px_4px_0px_rgba(0,0,0,0.3)]"
       style={{
-        borderTop: "1px solid #000",
-        borderLeft: "1px solid #000",
-        borderRight: "1px solid #000",
-        background: "#DCD7DB",
+        borderTop: "1px solid #3d444d",
+        borderLeft: "1px solid #3d444d",
+        borderRight: "1px solid #3d444d",
+        background: "#262c36",
       }}
     >
       <div
-        className="p-3 border-b border-[#000] rounded-t-md"
+        className="p-3 border-b border-[#3d444d] rounded-t-md"
         style={{
-          background: "linear-gradient(to left, #C5A9E0, #7CDFD9)"
+          background: "linear-gradient(to left, #262c36, #151b23)"
         }}
       >
-        <div className="text-sm text-[#000]">
+        <div className="text-sm text-[#fff]">
           LOKI OS
         </div>
-        <div className="text-xs text-[#000]">
+        <div className="text-xs text-[#fff]">
           AESTHETIC EDITION
         </div>
       </div>
@@ -93,23 +79,23 @@ export default function StartMenu({ onItemClick }: StartMenuProps) {
         {menuItems.map((item) => (
           <button
             key={item.id}
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#3d444d] text-[#fff] text-left"
             onClick={() => handleItemClick(item)}
           >
             <div className="w-6 h-6">{item.icon}</div>
-            <span>{item.name}</span>
+            <span>{item.title}</span>
           </button>
         ))}
 
-        <div className="border-t border-[#000] mt-2 pt-2">
+        <div className="border-t border-[#151b23] mt-2 pt-2">
           <button
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#3d444d] text-[#fff] text-left"
             onClick={onItemClick}
           >
             <span>Credits</span>
           </button>
           <button
-            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#C3B9C1] text-[#000] text-left"
+            className="text-xs w-full px-4 py-3 flex items-center gap-3 hover:bg-[#3d444d] text-[#fff] text-left"
             onClick={onItemClick}
           >
             <span>Shut Down</span>

@@ -158,7 +158,7 @@ export default function Window({ window, isActive }: WindowProps) {
         left: window.position?.x,
         width: window.size?.width,
         height: window.size?.height,
-        border: "1px solid #000",
+        border: "1px solid #3d444d",
       };
 
   return (
@@ -170,18 +170,15 @@ export default function Window({ window, isActive }: WindowProps) {
     >
       {/* Window title bar */}
       <div
-        className="h-8 flex items-center justify-between px-2 cursor-move border-b border-[#000] rounded-tr rounded-tl"
+        className="h-8 flex items-center justify-between px-2 cursor-move border-b border-[#3d444d] rounded-tr rounded-tl"
         style={{
-          background: "linear-gradient(to right, #C1BBBF, #D8D3D7)",
+          background: "#151b23",
         }}
         onMouseDown={handleTitleMouseDown}
         onTouchStart={handleTitleMouseDown}
       >
-        <div className="flex items-center gap-2 text-[#000] text-xs">{window.title}</div>
+        <div className="flex items-center gap-2 text-[#fff] text-xs">{window.title}</div>
         <div className="flex items-center gap-1">
-          <button className="w-8 h-8 flex items-center justify-center" onClick={() => minimizeWindow(window.id)}>
-            <MinimizeIcon />
-          </button>
           <button className="w-8 h-8 flex items-center justify-center" onClick={() => maximizeWindow(window.id)}>
             <MaximizeIcon />
           </button>
@@ -195,10 +192,10 @@ export default function Window({ window, isActive }: WindowProps) {
       <ScrollArea
         className="flex-1 rounded-b"
         style={{
-          background: "#FFFFFF",
+          background: "#202830",
         }}
       >
-        <div className="p-2 text-[#000] text-xs">{window.content}</div>
+        <div className="p-2 text-[#fff] text-xs">{window.content}</div>
       </ScrollArea>
 
       {/* Resize handle */}
@@ -211,9 +208,4 @@ export default function Window({ window, isActive }: WindowProps) {
       )}
     </div>
   );
-}
-
-// This function would be implemented in the WindowContext
-function minimizeWindow(id: string) {
-  console.log("Minimize window", id);
 }
