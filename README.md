@@ -30,3 +30,4 @@ npm run dev
 - [ ] Animations: button press downs, fade-ins, parallax, etc
 - [ ] Update favicons and website description
 - [ ] Add the ability to deeplink to a window
+- [ ] Update the close and maximize icons to be more pixelated

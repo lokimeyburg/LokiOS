@@ -9,7 +9,7 @@ export const AboutIconSmall = () => (
 )
 
 export const NeptuneIcon = () => (
-  <img src="/icons/Neptune.png" alt="Neptune Icon" className="w-41 h-41" />
+  <img src="/icons/Neptune.png" alt="Neptune Icon" className="w-41 v h-41" />
 )
 
 export const NeptuneIconSmall = () => (
@@ -39,15 +39,11 @@ export const MinimizeIcon = () => (
 )
 
 export const MaximizeIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="6" width="12" height="12" stroke="#fff" strokeWidth="2" />
-  </svg>
+  <img src="/icons/Expand.svg" alt="Maximize Icon" width="14" height="14" />
 )
 
 export const CloseIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 6L18 18M6 18L18 6" stroke="#fff" strokeWidth="2" />
-  </svg>
+  <img src="/icons/Close.svg" alt="Close Icon" width="11" height="11" />
 )
 
 export const ClockIcon = () => ( 
