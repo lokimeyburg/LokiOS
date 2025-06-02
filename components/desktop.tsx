@@ -44,7 +44,7 @@ export default function Desktop() {
         background: "transparent"
       }}
     >
-      <div className="w-[120px] h-full p-4 flex flex-col gap-10">
+      <div className="w-[120px] h-full p-4 pt-10 flex flex-col gap-10">
         {desktopIcons.map((icon) => (
           <div
             key={icon.id}

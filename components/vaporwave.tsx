@@ -177,7 +177,7 @@ const VaporWave = () => {
 
     // Base camera
     const camera = new THREE.PerspectiveCamera(
-      75,
+      62,
       sizes.width / sizes.height,
       0.01,
       20
