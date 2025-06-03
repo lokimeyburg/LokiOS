@@ -185,17 +185,18 @@ export default function Window({ window, isActive }: WindowProps) {
         top: window.position?.y,
         left: window.position?.x,
         width: window.size?.width,
-        height: window.size?.height,
-        border: "1px solid #3d444d",
+        height: window.size?.height
       };
 
-    // Determine animation class
-  const animationClass = isNew ? "animate-bounce-in" : window.isClosing ? "animate-bounce-out" : ""
+  // Determine animation class
+  const animationClass = isNew ? "animate-bounce-in" : window.isClosing ? "animate-bounce-out" : "";
 
   return (
     <div
       ref={windowRef}
-      className={`absolute rounded pointer-events-auto flex flex-col shadow-[3px_3px_0px_rgba(0,0,0,0.3)] ${animationClass}`}
+      className={`absolute rounded pointer-events-auto flex flex-col shadow-[3px_3px_0px_rgba(0,0,0,0.3)] border 
+        ${isActive ? "border-[#3d444d]" : "border-gray-900 z-0"}
+        ${animationClass}`}
       style={style}
       onClick={handleWindowClick}
     >
