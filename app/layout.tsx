@@ -15,9 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ height: "100%", overflow:"hidden", position: "relative"}}>
       <head>
-        <link rel="preconnect"
-              href="https://fonts.gstatic.com"
-              crossOrigin="anonymous" />
       </head>
       <body>
         {children}
