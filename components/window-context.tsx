@@ -9,7 +9,8 @@ export interface Window {
   icon?: ReactNode
   position?: { x: number; y: number }
   size?: { width: number; height: number }
-  isMaximized?: boolean
+  isMaximized?: boolean,
+  isClosing?: boolean
 }
 
 interface WindowContextType {
@@ -21,6 +22,7 @@ interface WindowContextType {
   maximizeWindow: (id: string) => void
   updateWindowPosition: (id: string, position: { x: number; y: number }) => void
   updateWindowSize: (id: string, size: { width: number; height: number }) => void
+  startWindowClose: (id: string) => void
 }
 
 export const WindowContext = createContext<WindowContextType>({
@@ -32,6 +34,7 @@ export const WindowContext = createContext<WindowContextType>({
   maximizeWindow: () => {},
   updateWindowPosition: () => {},
   updateWindowSize: () => {},
+  startWindowClose: () => {}
 })
 
 export function WindowProvider({ children }: { children: ReactNode }) {
@@ -64,11 +67,16 @@ export function WindowProvider({ children }: { children: ReactNode }) {
           }
         : { width: 900, height: 800 }),
       isMaximized: osWindow.isMaximized || false,
+      isClosing: false
     };
 
     setWindows([...windows, newWindow]);
     setActiveWindowId(osWindow.id);
   };
+
+  const startWindowClose = (id: string) => {
+    setWindows(windows.map((window) => (window.id === id ? { ...window, isClosing: true } : window)))
+  }
 
   const closeWindow = (id: string) => {
     setWindows(windows.filter((window) => window.id !== id))
@@ -105,6 +113,7 @@ export function WindowProvider({ children }: { children: ReactNode }) {
         maximizeWindow,
         updateWindowPosition,
         updateWindowSize,
+        startWindowClose
       }}
     >
       {children}

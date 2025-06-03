@@ -17,14 +17,37 @@ export default function Window({ window, isActive }: WindowProps) {
     maximizeWindow,
     updateWindowPosition,
     updateWindowSize,
+    startWindowClose
   } = useContext(WindowContext);
 
+  const [isNew, setIsNew] = useState(true)
   const [isDragging, setIsDragging] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [resizeStart, setResizeStart] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
   const windowRef = useRef<HTMLDivElement>(null);
+
+  // Handle animation on mount
+  useEffect(() => {
+    setIsNew(true)
+    const timer = setTimeout(() => {
+      setIsNew(false)
+    }, 300) // Match animation duration
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Handle closing animation
+  useEffect(() => {
+    if (window.isClosing) {
+      const timer = setTimeout(() => {
+        closeWindow(window.id)
+      }, 300) // Match animation duration
+
+      return () => clearTimeout(timer)
+    }
+  }, [window.isClosing, window.id, closeWindow])
 
   // Unified event handler for mouse and touch events
   const getClientCoordinates = (
@@ -144,6 +167,11 @@ export default function Window({ window, isActive }: WindowProps) {
     setActiveWindow(window.id);
   };
 
+  const handleCloseClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    startWindowClose(window.id)
+  }
+
   // Window styles
   const style = window.isMaximized
     ? {
@@ -161,10 +189,13 @@ export default function Window({ window, isActive }: WindowProps) {
         border: "1px solid #3d444d",
       };
 
+    // Determine animation class
+  const animationClass = isNew ? "animate-bounce-in" : window.isClosing ? "animate-bounce-out" : ""
+
   return (
     <div
       ref={windowRef}
-      className="absolute rounded pointer-events-auto flex flex-col shadow-[3px_3px_0px_rgba(0,0,0,0.3)]"
+      className={`absolute rounded pointer-events-auto flex flex-col shadow-[3px_3px_0px_rgba(0,0,0,0.3)] ${animationClass}`}
       style={style}
       onClick={handleWindowClick}
     >
@@ -182,7 +213,7 @@ export default function Window({ window, isActive }: WindowProps) {
           <button className="w-8 h-8 flex items-center justify-center" onClick={() => maximizeWindow(window.id)}>
             <MaximizeIcon />
           </button>
-          <button className="w-8 h-8 flex items-center justify-center" onClick={() => closeWindow(window.id)}>
+          <button className="w-8 h-8 flex items-center justify-center" onClick={handleCloseClick}>
             <CloseIcon />
           </button>
         </div>
