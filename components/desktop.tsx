@@ -3,7 +3,7 @@
 import { useContext, useState, useEffect } from "react"
 import { WindowContext } from "./window-context"
 import { AboutIcon, NeptuneIcon, SparkIcon, SignalIcon } from "./pixel-icons"
-import { AboutContent } from "./windowPages/about"
+import { AboutContent } from "./windowContent/about"
 
 export default function Desktop() {
   const { openWindow } = useContext(WindowContext)
