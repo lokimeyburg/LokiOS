@@ -1,12 +1,13 @@
 "use client"
 
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
 import { WindowContext } from "./window-context"
 import { AboutIcon, NeptuneIcon, SparkIcon, SignalIcon } from "./pixel-icons"
 import { AboutContent } from "./windowContent/about"
 
 export default function Desktop() {
   const { openWindow } = useContext(WindowContext)
+  const [visibleIcons, setVisibleIcons] = useState<number[]>([])
 
   const desktopIcons = [
     {
@@ -37,6 +38,15 @@ export default function Desktop() {
 
   // openWindow(desktopIcons[0]) // Open the first icon by default
 
+  useEffect(() => {
+    // Start the staggered animation
+    desktopIcons.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleIcons((prev) => [...prev, index])
+      }, index * 250) // 150ms delay between each icon
+    })
+  }, [])
+
   return (
     <div
       className="h-full w-full flex"
@@ -45,10 +55,12 @@ export default function Desktop() {
       }}
     >
       <div className="w-[120px] h-full p-4 pt-10 flex flex-col gap-10">
-        {desktopIcons.map((icon) => (
+        {desktopIcons.map((icon, index) => (
           <div
             key={icon.id}
-            className="flex flex-col items-center justify-center gap-2 cursor-pointer"
+            className={`flex flex-col items-center justify-center gap-2 cursor-pointer ${
+              visibleIcons.includes(index) ? "animate-fade-in" : "opacity-0"
+            }`}
             onClick={() =>
               openWindow({
                 id: icon.id,

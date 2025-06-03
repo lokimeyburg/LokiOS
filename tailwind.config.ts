@@ -118,12 +118,23 @@ const config: Config = {
             opacity: "0",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "bounce-in": "bounce-in 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
         "bounce-out": "bounce-out 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
+        "fade-in": "fade-in 1s ease-out forwards"
       },
     },
   },
