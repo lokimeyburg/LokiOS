@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { WindowContext } from "./window-context"
 import { AboutIconSmall, NeptuneIconSmall, SparkIconSmall, SignalIconSmall } from "./pixel-icons" 
 import { Power, Users } from "lucide-react"
-import { AboutContent } from "./windowContent/about"
+import { AboutContent } from "./windowPages/about"
 
 interface StartMenuProps {
   onItemClick: () => void
