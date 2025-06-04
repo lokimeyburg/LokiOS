@@ -74,6 +74,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        PressStart2P: ['var(--font-PressStart2P)']
+      },
       fontSize: {
         xs: "0.65rem", // 12px
         sm: "0.875rem", // 14px

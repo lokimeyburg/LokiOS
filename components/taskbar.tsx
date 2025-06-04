@@ -17,11 +17,10 @@ export default function Taskbar({ onStartClick }: TaskbarProps) {
 
   return (
     <div
-      className="h-10 flex items-center justify-center px-4 z-50 gap-2"
+      className="h-10 flex items-center justify-center px-4 z-50 gap-2 font-PressStart2P"
       style={{
         background: "#202830",
         borderTop: "1px solid #3d444d",
-        fontFamily: "'Press Start 2P', monospace"
       }}
     >
       <button

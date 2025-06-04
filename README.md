@@ -31,4 +31,4 @@ npm run dev
 - [ ] Update favicons and website description
 - [ ] Add the ability to deeplink to a window
 - [ ] Update the close and maximize icons to be more pixelated for their sizes
-- [ ] Do not animate windows when switching between them (active states)
+- [x] Do not animate windows when switching between them (active states)

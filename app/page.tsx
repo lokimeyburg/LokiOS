@@ -15,10 +15,10 @@ export default function Home() {
 
   useEffect(() => {
     // Load Google Font
-    var link = document.createElement("link")
-    link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
-    link.rel = "stylesheet"
-    document.head.appendChild(link)
+    // var link = document.createElement("link")
+    // link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block"
+    // link.rel = "stylesheet"
+    // document.head.appendChild(link)
 
     // Simulate loading time
     const timer = setTimeout(() => {
@@ -27,9 +27,9 @@ export default function Home() {
 
     return () => {
       clearTimeout(timer)
-        if (document.head.contains(link)) {
-          document.head.removeChild(link)
-      }
+      //   if (document.head.contains(link)) {
+      //     document.head.removeChild(link)
+      // }
     }
   }, [])
 
@@ -46,8 +46,8 @@ export default function Home() {
       <VaporWave />
       <WindowProvider>
         <main
-          className="h-screen w-screen overflow-hidden relative flex flex-col"
-          style={{ fontFamily: "'Press Start 2P', monospace", maxHeight: "calc(100svh)"}}
+          className="h-screen w-screen overflow-hidden relative flex flex-col font-PressStart2P"
+          style={{ maxHeight: "calc(100svh)"}}
         >
           {loading ? (
             <LoadingScreen />

@@ -25,13 +25,7 @@ export default function LoadingScreen() {
   }, [])
 
   return (
-    <div
-      className="h-full w-full flex flex-col items-center justify-center"
-      style={{
-        background: "#000",
-        fontFamily: "'Press Start 2P', monospace"
-      }}
-    >
+    <div className="h-full w-full flex flex-col items-center justify-center font-PressStart2P bg-[#000]">
       <div
         className="text-center p-8 text-[#00FFAA]"
       >
