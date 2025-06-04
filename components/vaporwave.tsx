@@ -207,6 +207,22 @@ const VaporWave = () => {
       .step(0.1)
       .onChange(() => camera.updateProjectionMatrix())
       .name("Camera FOV");
+
+    // gui.add(camera.position, "x")
+    //   .min(-3)
+    //   .max(3)
+    //   .step(0.001)
+    //   .onChange(() => camera.updateProjectionMatrix())
+    //   .name("Camera Position X");
+
+    // gui.add(camera.position, "y")
+    //   .min(-3)
+    //   .max(3)
+    //   .step(0.001)
+    //   .onChange(() => camera.updateProjectionMatrix())
+    //   .name("Camera Position Y");
+
+
     scene.add(camera);
 
     // Controls
@@ -275,6 +291,18 @@ const VaporWave = () => {
       effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
+    // Mouse position
+    const mouse = { x: 0, y: 0 };
+
+    // Update mouse position on mousemove
+    const onMouseMove = (event: MouseEvent) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1; // Normalize to [-1, 1]
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1; // Normalize to [-1, 1]
+      // console.log(`Mouse X: ${mouse.x}, Mouse Y: ${mouse.y}`);
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+
     // Animation
     const clock = new THREE.Clock();
 
@@ -284,6 +312,18 @@ const VaporWave = () => {
       // Update plane position
       plane.position.z = (elapsedTime * 0.15) % 2;
       plane2.position.z = ((elapsedTime * 0.15) % 2) - 2;
+
+      // Smoothly move the camera based on mouse position
+      camera.position.x += (mouse.x * 0.01 - camera.position.x) * 0.05; // Adjust sensitivity with 0.1
+      // camera.position.y += (mouse.y * 0.003 - camera.position.y) * 0.05;
+      camera.position.z = 1.1;
+    // camera.position.x = 0;
+    // camera.position.y = 0.06;
+    // camera.position.z = 1.1;
+
+
+      // Ensure the camera always looks at the center of the scene
+      // camera.lookAt(0, 0, 0);
 
       // Update controls
       controls.update();
